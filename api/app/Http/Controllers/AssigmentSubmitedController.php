@@ -30,11 +30,26 @@ class AssigmentSubmitedController extends Controller
         ]);
     }
 
+    /**
+     * store file to disk
+     * @param Request
+     * 
+     * return file path
+     */
     public function uploadFile(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            ''
+            'file'  => 'required|jpeg,docs,png'
         ]);
+
+        if($validator->fails()){
+            return response()->json([
+                'error' => $validator->errors()
+            ]);
+        }
+        if($request->hasFIle('file')){
+
+        }
     }
     
     public function update(Request $request, $id)
