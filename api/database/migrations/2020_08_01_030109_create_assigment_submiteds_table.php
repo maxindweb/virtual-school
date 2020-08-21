@@ -17,6 +17,7 @@ class CreateAssigmentSubmitedsTable extends Migration
             $table->id();
             $table->string('file');
             $table->unsignedInteger('assigment_id');
+            $table->unsignedInteger('user_id');
             $table->dateTime('submited_at');
             $table->timestamps();
         });

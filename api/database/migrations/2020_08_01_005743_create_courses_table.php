@@ -17,7 +17,6 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->boolean('active');
             $table->string('thumbnail');
             $table->timestamps();
         });

@@ -20,6 +20,7 @@ class CreateAssigmentsTable extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             $table->unsignedInteger('courses_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
