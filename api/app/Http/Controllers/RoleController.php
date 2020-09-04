@@ -12,6 +12,10 @@ class RoleController extends Controller
         return response()->json(Role::all(), 200);
     }
 
+    /**
+     * stored role to disk
+     * @param Request
+     */
     public function store(Request $request)
     {
         $role = Role::create([
@@ -23,9 +27,21 @@ class RoleController extends Controller
         ]);
     }
 
-    public function update()
+    /**
+     * Updating role data
+     * @param Request
+     * @param Role
+     */
+    public function update(Request $request, Role $role)
     {
-        //
+        $fole = Role::find($role);
+        $role->role = $request['role'];
+        $role->save();
+
+        return response()->json([
+            'status'    => $role,
+            'message'   => $role ? 'Success Updating Role' : 'Error Updating Role'
+        ]);
     }
 
     public function destroy()

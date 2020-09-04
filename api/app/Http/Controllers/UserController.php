@@ -25,7 +25,7 @@ class UserController extends Controller
 
         if($validator->fails()){
             return response()->json([
-                'error' => $validator->error()
+                'error' => $validator->errors()
             ]);
         }
 
